@@ -53,7 +53,7 @@ r~w
 Text Label 3690 3670 0    50   ~ 0
 data_bus
 Text Label 3220 5270 0    50   ~ 0
-~as
+~bas
 Text Label 3220 5370 0    50   ~ 0
 ~buds
 Text Label 3220 5470 0    50   ~ 0
@@ -1423,7 +1423,7 @@ r~w
 Text Label 7220 3670 0    50   ~ 0
 data_bus
 Text Label 6750 5270 0    50   ~ 0
-~as
+~cpuas
 Text Label 6750 5470 0    50   ~ 0
 ~cpulds
 $Comp
@@ -2428,7 +2428,7 @@ Text Label 780  4570 0    50   ~ 0
 Wire Wire Line
 	1170 4170 720  4170
 Text Label 780  4170 0    50   ~ 0
-~dtack
+~bdtack
 Wire Wire Line
 	4700 1470 4250 1470
 Text Label 4310 1470 0    50   ~ 0
@@ -2484,7 +2484,7 @@ Text Label 4310 3970 0    50   ~ 0
 Wire Wire Line
 	4700 4170 4250 4170
 Text Label 4310 4170 0    50   ~ 0
-~dtack
+~cpudtack
 Wire Wire Line
 	4700 4570 4250 4570
 Text Label 4310 4570 0    50   ~ 0
@@ -2589,164 +2589,151 @@ Text Label 6750 5370 0    50   ~ 0
 $Comp
 L Device:C C21
 U 1 1 60B31A40
-P 9600 9180
-F 0 "C21" H 9715 9226 50  0000 L CNN
-F 1 "100n" H 9715 9135 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 9638 9030 50  0001 C CNN
-F 3 "~" H 9600 9180 50  0001 C CNN
-	1    9600 9180
+P 9400 9180
+F 0 "C21" H 9515 9226 50  0000 L CNN
+F 1 "100n" H 9515 9135 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 9438 9030 50  0001 C CNN
+F 3 "~" H 9400 9180 50  0001 C CNN
+	1    9400 9180
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR037
 U 1 1 60B31A4A
-P 9600 8910
-F 0 "#PWR037" H 9600 8760 50  0001 C CNN
-F 1 "VCC" H 9617 9083 50  0000 C CNN
-F 2 "" H 9600 8910 50  0001 C CNN
-F 3 "" H 9600 8910 50  0001 C CNN
-	1    9600 8910
+P 9400 8910
+F 0 "#PWR037" H 9400 8760 50  0001 C CNN
+F 1 "VCC" H 9417 9083 50  0000 C CNN
+F 2 "" H 9400 8910 50  0001 C CNN
+F 3 "" H 9400 8910 50  0001 C CNN
+	1    9400 8910
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR038
 U 1 1 60B31A54
-P 9600 9480
-F 0 "#PWR038" H 9600 9230 50  0001 C CNN
-F 1 "GND" H 9605 9307 50  0000 C CNN
-F 2 "" H 9600 9480 50  0001 C CNN
-F 3 "" H 9600 9480 50  0001 C CNN
-	1    9600 9480
+P 9400 9480
+F 0 "#PWR038" H 9400 9230 50  0001 C CNN
+F 1 "GND" H 9405 9307 50  0000 C CNN
+F 2 "" H 9400 9480 50  0001 C CNN
+F 3 "" H 9400 9480 50  0001 C CNN
+	1    9400 9480
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9600 8910 9600 9030
+	9400 8910 9400 9030
 Wire Wire Line
-	9600 9330 9600 9480
+	9400 9330 9400 9480
 $Comp
 L 74xx:74LS257 U10
 U 1 1 60C9C75A
-P 11700 9400
-F 0 "U10" H 11700 10481 50  0000 C CNN
-F 1 "74AHCT257" H 11700 10390 50  0000 C CNN
-F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 11700 9400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS257" H 11700 9400 50  0001 C CNN
-	1    11700 9400
+P 11500 9400
+F 0 "U10" H 11500 10481 50  0000 C CNN
+F 1 "74AHCT257" H 11500 10390 50  0000 C CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 11500 9400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS257" H 11500 9400 50  0001 C CNN
+	1    11500 9400
 	1    0    0    -1  
 $EndComp
-Text Label 10950 8900 0    50   ~ 0
+Text Label 10750 8900 0    50   ~ 0
 ~cpuuds
-Text Label 10950 9200 0    50   ~ 0
+Text Label 10750 9200 0    50   ~ 0
 ~cpulds
 $Comp
 L power:GND #PWR041
 U 1 1 60F82835
-P 11700 10400
-F 0 "#PWR041" H 11700 10150 50  0001 C CNN
-F 1 "GND" H 11705 10227 50  0000 C CNN
-F 2 "" H 11700 10400 50  0001 C CNN
-F 3 "" H 11700 10400 50  0001 C CNN
-	1    11700 10400
+P 11500 10400
+F 0 "#PWR041" H 11500 10150 50  0001 C CNN
+F 1 "GND" H 11505 10227 50  0000 C CNN
+F 2 "" H 11500 10400 50  0001 C CNN
+F 3 "" H 11500 10400 50  0001 C CNN
+	1    11500 10400
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR040
 U 1 1 60F82CC1
-P 11700 8200
-F 0 "#PWR040" H 11700 8050 50  0001 C CNN
-F 1 "VCC" H 11717 8373 50  0000 C CNN
-F 2 "" H 11700 8200 50  0001 C CNN
-F 3 "" H 11700 8200 50  0001 C CNN
-	1    11700 8200
+P 11500 8200
+F 0 "#PWR040" H 11500 8050 50  0001 C CNN
+F 1 "VCC" H 11517 8373 50  0000 C CNN
+F 2 "" H 11500 8200 50  0001 C CNN
+F 3 "" H 11500 8200 50  0001 C CNN
+	1    11500 8200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10800 8800 10800 9100
+	10600 8800 10600 9100
 Wire Wire Line
-	10800 8800 11200 8800
+	10600 8800 11000 8800
 Wire Wire Line
-	10800 9800 11200 9800
+	10600 9700 11000 9700
 Wire Wire Line
-	10800 9700 11200 9700
-Connection ~ 10800 9700
+	11500 8200 11500 8500
 Wire Wire Line
-	10800 9700 10800 9800
+	11500 8500 10600 8500
 Wire Wire Line
-	11700 8200 11700 8500
+	10600 8500 10600 8800
+Connection ~ 10600 8800
+Connection ~ 11500 8500
 Wire Wire Line
-	11700 8500 10800 8500
-Wire Wire Line
-	10800 8500 10800 8800
-Connection ~ 10800 8800
-Connection ~ 11700 8500
-Wire Wire Line
-	10800 10000 11200 10000
-Text Label 10800 10000 0    50   ~ 0
+	10600 10000 11000 10000
+Text Label 10600 10000 0    50   ~ 0
 ~cloak
 Wire Wire Line
-	10800 10100 11200 10100
-Text Label 10800 10100 0    50   ~ 0
+	10600 10100 11000 10100
+Text Label 10600 10100 0    50   ~ 0
 DMA
-NoConn ~ 12200 9700
 Wire Wire Line
-	12200 8800 12450 8800
+	12000 8800 12250 8800
 Wire Wire Line
-	12450 9100 12200 9100
+	12250 9100 12000 9100
 Wire Wire Line
-	10800 9100 11200 9100
-Connection ~ 10800 9100
-Wire Wire Line
-	10800 9100 10800 9400
-Wire Wire Line
-	10800 9400 11200 9400
-Connection ~ 10800 9400
-Wire Wire Line
-	10800 9400 10800 9500
-Text Label 12450 8800 2    50   ~ 0
+	10600 9100 11000 9100
+Connection ~ 10600 9100
+Text Label 12250 8800 2    50   ~ 0
 ~buds
-Text Label 12450 9100 2    50   ~ 0
+Text Label 12250 9100 2    50   ~ 0
 ~blds
 $Comp
 L Device:R_Small R6
 U 1 1 61C5762F
-P 10250 8750
-F 0 "R6" H 10309 8796 50  0000 L CNN
-F 1 "4k7" H 10309 8705 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10250 8750 50  0001 C CNN
-F 3 "~" H 10250 8750 50  0001 C CNN
-	1    10250 8750
+P 10050 8750
+F 0 "R6" H 10109 8796 50  0000 L CNN
+F 1 "4k7" H 10109 8705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10050 8750 50  0001 C CNN
+F 3 "~" H 10050 8750 50  0001 C CNN
+	1    10050 8750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small R5
 U 1 1 61C581AB
-P 10000 8750
-F 0 "R5" H 10059 8796 50  0000 L CNN
-F 1 "4k7" H 10059 8705 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 10000 8750 50  0001 C CNN
-F 3 "~" H 10000 8750 50  0001 C CNN
-	1    10000 8750
+P 9800 8750
+F 0 "R5" H 9859 8796 50  0000 L CNN
+F 1 "4k7" H 9859 8705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" H 9800 8750 50  0001 C CNN
+F 3 "~" H 9800 8750 50  0001 C CNN
+	1    9800 8750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10000 8650 10250 8650
+	9800 8650 10050 8650
 $Comp
 L power:VCC #PWR039
 U 1 1 61F5D202
-P 10000 8650
-F 0 "#PWR039" H 10000 8500 50  0001 C CNN
-F 1 "VCC" H 10017 8823 50  0000 C CNN
-F 2 "" H 10000 8650 50  0001 C CNN
-F 3 "" H 10000 8650 50  0001 C CNN
-	1    10000 8650
+P 9800 8650
+F 0 "#PWR039" H 9800 8500 50  0001 C CNN
+F 1 "VCC" H 9817 8823 50  0000 C CNN
+F 2 "" H 9800 8650 50  0001 C CNN
+F 3 "" H 9800 8650 50  0001 C CNN
+	1    9800 8650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10250 8850 10250 8900
+	10050 8850 10050 8900
 Wire Wire Line
-	10250 8900 11200 8900
+	10050 8900 11000 8900
 Wire Wire Line
-	10000 8850 10000 9200
+	9800 8850 9800 9200
 $Comp
 L 74xx:74HC00 U11
 U 1 1 6215C0F6
@@ -2915,16 +2902,10 @@ DMA hacks
 Text Notes 9200 10750 0    50   ~ 0
 Hide autoconfig cycles from rest of system during our turn\nPrevents conflicts without needing cfgin/out
 Wire Wire Line
-	10000 9200 11200 9200
-Wire Wire Line
-	10800 9500 11200 9500
-Connection ~ 10800 9500
-Wire Wire Line
-	10800 9500 10800 9700
-NoConn ~ 12200 9400
-Connection ~ 10000 8650
+	9800 9200 11000 9200
+Connection ~ 9800 8650
 Text Notes 12600 10750 0    50   ~ 0
-During DMA some other bus master will drive UDS/LDS\nSo we need to tri-state the cloak's outputs.\nThe CPLD needs to receive the bus masters UDS/LDS\nThese NAND gates provide that whether the CPU or something else is bus master
+During DMA some other bus master will drive UDS/LDS/AS\nSo we need to tri-state the cloak's outputs.\nThe CPLD needs to receive the bus masters UDS/LDS/AS\nThese NAND gates provide that whether the CPU or something else is bus master
 Wire Wire Line
 	7910 10060 7910 10210
 Wire Wire Line
@@ -3282,7 +3263,7 @@ F 3 "" H 4000 10820 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 3620 10130 0    50   ~ 0
-~as
+as
 Text Label 3620 10030 0    50   ~ 0
 ~reset
 Wire Wire Line
@@ -3397,27 +3378,6 @@ F 3 "" H 8580 9380 50  0001 C CNN
 	1    8580 9380
 	1    0    0    -1  
 $EndComp
-NoConn ~ 13800 10000
-Wire Wire Line
-	13200 9900 12950 9900
-Wire Wire Line
-	12950 9900 12950 10000
-Wire Wire Line
-	12950 10100 13200 10100
-$Comp
-L power:GND #PWR0101
-U 1 1 60ED2E3A
-P 12950 10000
-F 0 "#PWR0101" H 12950 9750 50  0001 C CNN
-F 1 "GND" V 12955 9872 50  0000 R CNN
-F 2 "" H 12950 10000 50  0001 C CNN
-F 3 "" H 12950 10000 50  0001 C CNN
-	1    12950 10000
-	0    1    1    0   
-$EndComp
-Connection ~ 12950 10000
-Wire Wire Line
-	12950 10000 12950 10100
 $Comp
 L power:GND #PWR05
 U 1 1 60B2AA6F
@@ -3435,16 +3395,9 @@ Connection ~ 5860 7750
 Wire Wire Line
 	5860 7750 6290 7750
 Wire Wire Line
-	5860 7550 5860 7750
-Connection ~ 5860 7550
-Wire Wire Line
-	5860 7450 5860 7550
-Wire Wire Line
 	5860 7850 6290 7850
 Wire Wire Line
 	6290 7450 5860 7450
-Wire Wire Line
-	6290 7550 5860 7550
 Text Label 7330 7150 0    50   ~ 0
 ma1
 Text Label 7330 6850 0    50   ~ 0
@@ -3469,8 +3422,6 @@ Wire Wire Line
 	6290 6950 5870 6950
 Wire Wire Line
 	6290 6850 5870 6850
-NoConn ~ 7290 7750
-NoConn ~ 7290 7450
 Text Label 12900 8450 0    50   ~ 0
 ~cpulds
 Wire Wire Line
@@ -3499,6 +3450,61 @@ F 3 "~" H 3150 10330 50  0001 C CNN
 	1    3150 10330
 	1    0    0    -1  
 $EndComp
+Connection ~ 3440 10330
+Wire Wire Line
+	3440 10330 4110 10330
+$Comp
+L power:GND #PWR046
+U 1 1 61C22279
+P 3440 10630
+F 0 "#PWR046" H 3440 10380 50  0001 C CNN
+F 1 "GND" H 3445 10457 50  0000 C CNN
+F 2 "" H 3440 10630 50  0001 C CNN
+F 3 "" H 3440 10630 50  0001 C CNN
+	1    3440 10630
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5860 7450 5860 7550
+Wire Wire Line
+	5860 7550 5860 7750
+Connection ~ 5860 7550
+Wire Wire Line
+	6290 7550 5860 7550
+NoConn ~ 7290 7750
+NoConn ~ 7290 7450
+Wire Wire Line
+	11000 9500 10700 9500
+Wire Wire Line
+	10600 9100 10600 9700
+Wire Wire Line
+	11000 9400 10700 9400
+Wire Wire Line
+	12000 9700 12250 9700
+Text Label 10750 9500 0    50   ~ 0
+~bdtack
+Text Label 12100 9400 0    50   ~ 0
+~cpudtack
+Text Label 10750 9400 0    50   ~ 0
+~cpuas
+Text Label 12100 9700 0    50   ~ 0
+~bas
+Wire Wire Line
+	12000 9400 12450 9400
+Wire Wire Line
+	11000 9800 10700 9800
+Text Label 10750 9800 0    50   ~ 0
+~cpuas
+Wire Wire Line
+	12900 9900 13200 9900
+Wire Wire Line
+	12900 10100 13200 10100
+Text Label 12900 10100 0    50   ~ 0
+~bas
+Text Label 12900 9900 0    50   ~ 0
+~cpuas
+Wire Wire Line
+	14050 10000 13800 10000
 Wire Bus Line
 	8370 3300 8370 7610
 Wire Bus Line
@@ -3523,18 +3529,6 @@ Wire Bus Line
 	14650 970  14650 5820
 Wire Bus Line
 	11550 970  11550 5620
-Connection ~ 3440 10330
-Wire Wire Line
-	3440 10330 4110 10330
-$Comp
-L power:GND #PWR046
-U 1 1 61C22279
-P 3440 10630
-F 0 "#PWR046" H 3440 10380 50  0001 C CNN
-F 1 "GND" H 3445 10457 50  0000 C CNN
-F 2 "" H 3440 10630 50  0001 C CNN
-F 3 "" H 3440 10630 50  0001 C CNN
-	1    3440 10630
-	1    0    0    -1  
-$EndComp
+Text Label 13950 10000 0    50   ~ 0
+as
 $EndSCHEMATC
