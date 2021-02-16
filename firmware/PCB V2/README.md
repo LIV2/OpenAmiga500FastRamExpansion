@@ -100,9 +100,7 @@ I have managed to build a Windows binary of UrJTAG with only the minimum options
 I hope this works for you, but please note that **it is unsupported**, as I have no computers running Windows.
 
 ## Tinkering with the firmware
-The firmware was developed with Quartus 7.2, somewhat totally old and outdated, but I never got any problems with it. I DO NOT recommend using Quartus 6.x as I caught it generating wrong designs (in a way, nothing is working and when you swap to Quartus 7.2 not touching you project, everything is working back).
-
-If you want to move to something newer, it seems that Quartus 10.x and 11.x are still supporting EPM7000S chips. Starting from Quartus 12.x there's no more support for that devices.
+The firmware was developed with [Quartus 13.0 SP1 web edition](https://fpgasoftware.intel.com/13.0sp1/), you will also need the MAX 7000 device support package listed on that page
 
 ### POF => JED
 Quartus will produce a .POF file. This can be converted to a .JED file for Atmel devices through [Microchip's POF2JED utility](https://www.microchip.com/design-centers/programmable-logic/spld-cpld/tools/software/pof2jed), which is Windows-only unfortunately.

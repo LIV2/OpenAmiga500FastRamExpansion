@@ -69,7 +69,7 @@ If your system includes other Fast RAM devices or RTG graphics you may need to c
 
 ### Troubleshooting
 - Yellow screen: Due to an Kickstart bug you may see a yellow screen if there is more than 8MB of autoconfig devices in your system. Connect the CFGIN pin so this board is at the end of the chain or close the 4MB jumper.
-
+- Red screen showing "Status: Defective": This means the board was detected but the RAM test failed. Check the soldering of the RAM chips
 ### License
 The OpenAmiga500FastRamExpansion documentation, including the design itself, is copyright &copy; SukkoPera 2019. 
 
