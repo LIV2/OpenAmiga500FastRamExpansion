@@ -70,7 +70,9 @@ wire autoconfig_cycle;
 reg shutup = 0;
 reg configured;
 reg [3:0] data_out;
+reg CFGOUTn;
 
+`ifndef cdtv
 // Autoconfig bus snooping
 //
 // For some reason Kickstart 2 and up scan the chain multiple times
@@ -85,7 +87,6 @@ reg [3:0] board_reg01;
 reg [3:0] snooped_autoconfig_state;
 reg autoconfig_setup;
 reg [3:0] dbus_latched;
-reg CFGOUTn;
 
 always @(posedge CLK)
 begin
@@ -165,10 +166,30 @@ begin
 end
 
 reg [2:0] autoconfig_state;
+`else
+reg cdtv_configured;
+
+// CDTV DMAC is first in chain.
+// So we wait until it's configured before we talk
+always @(negedge UDSn or negedge RESETn)
+begin
+    if (!RESETn) begin
+      cdtv_configured <= 1'b0;
+    end else begin
+    if (ADDR_HI[23:16] == 8'hE8 & ADDR_LO[6:1] == 8'h24 & !ASn & !RWn) begin
+      cdtv_configured <= 1'b1;
+    end
+  end
+end
+`endif
 
 assign DBUS[15:12] = (autoconfig_cycle & RWn & !ASn & !UDSn) ? data_out[3:0] : 4'bZ;
 
+`ifndef cdtv
 assign autoconfig_cycle = (ADDR_HI[23:16] == 8'hE8) & snoop_cfg & CFGOUTn;
+`else
+assign autoconfig_cycle = (ADDR_HI[23:16] == 8'hE8) & CFGOUTn & cdtv_configured;
+`endif
 
 // Register Config in/out at end of bus cycle
 always @(posedge ASn or negedge RESETn)
@@ -188,7 +209,11 @@ begin
   end else if (autoconfig_cycle & RWn) begin
     case (ADDR_LO[6:1])      
       'h00:   data_out <= 4'b1110;
-      'h01:   data_out <= 4'b0110;
+`ifndef cdtv
+      'h01:   data_out <= 4'b0110; // 2MB
+`else
+      'h01:   data_out <= 4'b0000; // 8MB
+`endif
       'h02:   data_out <= ~prod_id[7:4]; // Product number
       'h03:   data_out <= ~prod_id[3:0]; // Product number
       'h04:   data_out <= ~4'b1000;
@@ -214,6 +239,7 @@ begin
     configured       <= 1'b0;
     shutup           <= 1'b0;
     addr_match       <= 8'b00000000;
+`ifndef cdtv
     autoconfig_state <= Offer_Block1;
     autoconfig_setup <= 1'b0;
   end else if (autoconfig_setup == 0 & snoop_cfg == 1) begin
@@ -222,6 +248,7 @@ begin
     if (snooped_autoconfig_state == SHUTUP) begin
       shutup <= 1;
     end
+`endif
   end else if (autoconfig_cycle & !ASn & !RWn) begin
     if (ADDR_LO[6:1] == 'h26) begin
       // Shutup register
@@ -229,6 +256,7 @@ begin
     end
     else if (ADDR_LO[6:1] == 'h24) begin
       // Configure Address Register
+`ifndef cdtv
       begin
         case(DBUS)
           4'h2:    addr_match <= (addr_match|8'b00000011);
@@ -242,6 +270,9 @@ begin
           shutup <= 1;
         end
       end
+`else
+		shutup <= 1'b1;
+`endif
       configured <= 1'b1;
     end
   end
@@ -292,6 +323,7 @@ begin
   if (!RESETn) begin
     ram_cycle = 1'b0;
   end else begin
+`ifndef cdtv
 `ifdef autoconfig
     ram_cycle = (
       ((ADDR_HI[23:20] == 4'h2) & addr_match[0]) |
@@ -303,8 +335,11 @@ begin
       ((ADDR_HI[23:20] == 4'h8) & addr_match[6]) |
       ((ADDR_HI[23:20] == 4'h9) & addr_match[7])
       ) & !ASn & configured;
-`else
+	`else
     ram_cycle = ((ADDR_HI[23:20] >= 4'h2) & (ADDR_HI[23:20] <= 4'h9) & !ASn);
+`endif
+`else
+    ram_cycle = ((ADDR_HI[23:20] >= 4'h2) & (ADDR_HI[23:20] <= 4'h9) & !ASn & configured);
 `endif
   end
 end
